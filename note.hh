@@ -7,6 +7,10 @@ class Note {
         Note(short p) {
             pitch = p;
         }
+        
+        short getPitch() {
+            return pitch;
+        }
 };
 
 /*
@@ -25,4 +29,3 @@ Note C = Note(8);
 Note Db = Note(9);
 Note D = Note(10);
 Note Eb = Note(11);
-
