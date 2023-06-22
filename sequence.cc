@@ -4,8 +4,10 @@ using namespace std;
 
 typedef vector<Note> seq;
 
-string print_tab(seq notes) {
-
+void print_notes(seq notes) {
+    for (int i = 0; i < notes.size(); i++) {
+        cout << notes[i].toString() << " ";
+    }
 }
 
 seq pentatonic(Note root) {
@@ -23,5 +25,6 @@ seq pentatonic(Note root) {
 }
 
 int main() {
-    seq song1 = pentatonic(A);
+    seq song1 = pentatonic(E);
+    print_notes(song1);
 }
