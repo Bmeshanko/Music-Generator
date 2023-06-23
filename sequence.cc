@@ -3,10 +3,33 @@
 using namespace std;
 
 typedef vector<Note> seq;
+typedef vector<char> vc;
+typedef vector<vc> vcc;
 
 void print_notes(seq notes) {
     for (int i = 0; i < notes.size(); i++) {
         cout << notes[i].toString() << " ";
+    }
+    cout << "\n";
+}
+
+void add_dashes(vcc &tab) {
+    vc dashes{'-', '-', '-', '-', '-', '-'};
+    tab.push_back(dashes);
+}
+
+vcc new_tab(seq notes) {
+    vcc tab;
+    add_dashes(tab);
+    return tab;
+}
+
+void print_tab(vcc tab) {
+    for (int i = 0; i < tab[0].size(); i++) {
+        for (int j = 0; j < tab.size(); j++) {
+            cout << tab[j][i];
+        }
+        cout << "\n";
     }
 }
 
@@ -26,5 +49,6 @@ seq pentatonic(Note root) {
 
 int main() {
     seq song1 = pentatonic(E);
-    print_notes(song1);
+    vcc tab = new_tab(song1);
+    print_tab(tab);
 }
