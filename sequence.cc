@@ -21,6 +21,11 @@ void add_dashes(vcc &tab) {
 vcc new_tab(seq notes) {
     vcc tab;
     add_dashes(tab);
+
+    for (auto n : notes) {
+        
+    }
+
     return tab;
 }
 

@@ -3,10 +3,12 @@ using namespace std;
 
 class Note {
     short pitch;
+    short octave;
 
     public:
         Note(short p) {
-            pitch = p;
+            pitch = p % 12;
+            octave = p / 12;
         }
         
         short getPitch() {
