@@ -41,7 +41,7 @@ void print_tab(vcc tab) {
 seq pentatonic(Note root) {
     seq ret;
 
-    int intervals[] = {0, 3, 5, 7, 10};
+    int intervals[] = {0, 3, 5, 7, 10, 12, 15, 17, 19, 22, 24, 27};
 
     int len = sizeof(intervals) / sizeof(intervals[0]);
 
@@ -53,7 +53,7 @@ seq pentatonic(Note root) {
 }
 
 int main() {
-    seq song1 = pentatonic(E);
+    seq song1 = pentatonic(Note(5));
     vcc tab = new_tab(song1);
     print_tab(tab);
 }
