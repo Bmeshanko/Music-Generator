@@ -18,12 +18,34 @@ void add_dashes(vcc &tab) {
     tab.push_back(dashes);
 }
 
+void add_note(vcc &tab, short fret, short str) {
+    // str - Low E = 0, High E = 5
+    // fret - fret number of note
+    vc dashes{'-', '-', '-', '-', '-', '-'};
+    if (fret >= 10) {
+        dashes[str] = '0' + (fret / 10);
+        tab.push_back(dashes);
+        vc dashes2{'-', '-', '-', '-', '-', '-'};
+        dashes2[str] = '0' + (fret % 10);
+        tab.push_back(dashes2);
+    } else {
+        dashes[str] = '0' + fret;
+        tab.push_back(dashes);
+    }
+}
+
 vcc new_tab(seq notes) {
     vcc tab;
     add_dashes(tab);
 
+    short root = notes[0].getNote();
+    // Root is on E String.
+    // In the worst case the root will be played by the pointer
+    // So we can only use our pinky which is 3 frets higher.
+    short low = root - 2;
+    short high = root + 3; 
     for (auto n : notes) {
-        
+        short note = n.getNote();
     }
 
     return tab;
@@ -46,7 +68,7 @@ seq pentatonic(Note root) {
     int len = sizeof(intervals) / sizeof(intervals[0]);
 
     for (int i = 0; i < len; i++) {
-        ret.push_back(Note((root.getPitch() + intervals[i]) % 12));
+        ret.push_back(Note((root.getNote() + intervals[i])));
     }
 
     return ret;

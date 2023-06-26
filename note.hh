@@ -15,6 +15,14 @@ class Note {
             return pitch;
         }
 
+        short getOctave() {
+            return octave;
+        }
+
+        short getNote() {
+            return octave * 12 + pitch;
+        }
+
         string toString() {
             switch (pitch) {
                 case 0: return "E";
