@@ -70,9 +70,20 @@ void print_tab(vcc tab) {
 
 seq pentatonic(Note root) {
     seq ret;
-
     int intervals[] = {0, 3, 5, 7, 10, 12, 15, 17, 19, 22, 24, 27};
+    int len = sizeof(intervals) / sizeof(intervals[0]);
 
+    for (int i = 0; i < len; i++) {
+        ret.push_back(Note((root.getNote() + intervals[i])));
+    }
+
+    return ret;
+}
+
+seq major_scale(Note root) {
+    seq ret;
+
+    int intervals[] = {0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24};
     int len = sizeof(intervals) / sizeof(intervals[0]);
 
     for (int i = 0; i < len; i++) {
@@ -83,7 +94,7 @@ seq pentatonic(Note root) {
 }
 
 int main() {
-    seq song1 = pentatonic(Note(5));
+    seq song1 = major_scale(Note(7));
     vcc tab = new_tab(song1);
     print_tab(tab);
 }
