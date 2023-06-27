@@ -43,16 +43,24 @@ vcc new_tab(seq notes) {
     // In the worst case the root will be played by the pointer
     // So we can only use our pinky which is 3 frets higher.
     short low = root - 2;
-    short high = root + 3; 
+    short high = root + 3;
+    int string_increments[] = {0, 5, 10, 15, 19, 24};
     for (auto n : notes) {
         short note = n.getNote();
+        int i = 0;
+        while (i < 6) {
+            if ((note - string_increments[i]) >= low && (note - string_increments[i]) <= high) break;
+            i++;
+        }
+        add_note(tab, note - string_increments[i], i);
+        add_dashes(tab);
     }
 
     return tab;
 }
 
 void print_tab(vcc tab) {
-    for (int i = 0; i < tab[0].size(); i++) {
+    for (int i = tab[0].size() - 1; i >= 0; i--) {
         for (int j = 0; j < tab.size(); j++) {
             cout << tab[j][i];
         }
