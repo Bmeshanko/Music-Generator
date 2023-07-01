@@ -89,7 +89,7 @@ seq major_scale(Note root) {
     for (int i = 0; i < len; i++) {
         ret.push_back(Note((root.getNote() + intervals[i])));
     }
-
+    
     return ret;
 }
 
