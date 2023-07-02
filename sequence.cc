@@ -94,7 +94,7 @@ seq major_scale(Note root) {
 }
 
 int main() {
-    seq song1 = major_scale(Note(7));
-    vcc tab = new_tab(song1);
+    seq major = major_scale(Note(8));
+    vcc tab = new_tab(major);
     print_tab(tab);
 }
