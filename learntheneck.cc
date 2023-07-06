@@ -6,10 +6,23 @@ string notes[] = {"E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#
 int intervals[] = {0, 5, 10, 15, 19, 24};
 
 int main() {
-    int str_rand = rand() % 6;
-    int fret_rand = rand() % 22 + 1;
-    while (fret_rand == 0 || fret_rand == 12) {
-        fret_rand = rand() % 22 + 1;
-    }
+    srand((unsigned) time(NULL));
+    int correct = 0;
+    int n = 10;
+    for (int i = 0; i < n; i++) {
+        int str = rand() % 6;
+        int fret = rand() % 22 + 1;
+        while (fret == 0 || fret == 12) {
+            fret = rand() % 22 + 1;
+        }
 
+        cout << strs[str] << " string, fret " << fret << "\n";
+        int note = (intervals[str] + fret) % 12;
+        string input;
+        cin >> input;
+        if (input == notes[note]) {
+            correct++;
+        }
+    }
+    cout << correct << "/" << n;
 }
