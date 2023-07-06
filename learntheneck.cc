@@ -7,6 +7,7 @@ int intervals[] = {0, 5, 10, 15, 19, 24};
 
 int main() {
     srand((unsigned) time(NULL));
+    int starttime = time(NULL);
     int correct = 0;
     int n = 10;
     for (int i = 0; i < n; i++) {
@@ -24,5 +25,7 @@ int main() {
             correct++;
         }
     }
-    cout << correct << "/" << n;
+    int endtime = time(NULL);
+    cout << correct << "/" << n << " correct\n";
+    cout << endtime - starttime << " seconds\n";
 }
