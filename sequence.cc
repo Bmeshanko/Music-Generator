@@ -86,6 +86,8 @@ seq major_scale(Note root) {
     int intervals[] = {0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24};
     int len = sizeof(intervals) / sizeof(intervals[0]);
 
+    ret.push_back(root);
+
     for (int i = 0; i < 10; i++) {
         int r = rand() % len;
         ret.push_back(Note((root.getNote() + intervals[r])));
