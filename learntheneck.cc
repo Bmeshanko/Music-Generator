@@ -1,9 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-string strs[] = {"E", "A", "D", "G", "B", "e"};
+string strs[] = {"E", "A", "D", "G", "B"};
 string notes[] = {"E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#", "D", "D#"};
-int intervals[] = {0, 5, 10, 15, 19, 24};
+int intervals[] = {0, 5, 10, 15, 19};
 
 int main() {
     srand((unsigned) time(NULL));
@@ -11,7 +11,7 @@ int main() {
     int correct = 0;
     int n = 10;
     for (int i = 0; i < n; i++) {
-        int str = rand() % 6;
+        int str = rand() % 5;
         int fret = rand() % 22 + 1;
         while (fret == 0 || fret == 12) {
             fret = rand() % 22 + 1;
