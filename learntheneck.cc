@@ -26,6 +26,6 @@ int main() {
         }
     }
     int endtime = time(NULL);
-    cout << correct << "/" << n << " correct\n";
-    cout << endtime - starttime << " seconds\n";
+    cout << correct << "/" << n << " correct.\n";
+    cout << endtime - starttime << " seconds.\n";
 }
