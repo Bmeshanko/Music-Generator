@@ -17,7 +17,7 @@ int main() {
             fret = rand() % 22 + 1;
         }
 
-        cout << strs[str] << " string, fret " << fret << "\n";
+        cout << strs[str] << " string - fret " << fret << "\n";
         int note = (intervals[str] + fret) % 12;
         string input;
         cin >> input;
@@ -26,6 +26,6 @@ int main() {
         }
     }
     int endtime = time(NULL);
-    cout << correct << "/" << n << " correct!\n";
-    cout << endtime - starttime << " seconds!\n";
+    cout << correct << "/" << n << " correct\n";
+    cout << endtime - starttime << " seconds\n";
 }
